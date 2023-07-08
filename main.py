@@ -51,6 +51,9 @@ def gameSnake():
 		if not game_over:
 			# Déplacement du serpent en fonction de sa direction
 			direction = bot(direction, serpent, nourriture, 0)
+			print(direction)
+			if direction == 'NULL':
+				direction = 'gauche'
 			if direction == 'haut':
 				serpent.insert(0, [serpent[0][0], serpent[0][1] - taille_cellule])
 			elif direction == 'bas':
@@ -84,7 +87,7 @@ def gameSnake():
 		# Mise à jour de l'affichage
 		pygame.display.flip()
 		# Contrôle de la vitesse du jeu
-		horloge.tick(20)
+		horloge.tick(100)
 	pygame.quit()
 # Lancement du jeu
 gameSnake()
